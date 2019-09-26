@@ -1,4 +1,6 @@
 import * as actionTypes from "../actions/actionTypes";
+import { arrowFunctionExpression } from "@babel/types";
+import { KeyObject } from "crypto";
 
 const initialState = {
   author: null,
@@ -21,7 +23,17 @@ const reducer = (state = initialState, action) => {
       };
 
     case actionTypes.POST_BOOK:
-    //UPDATE THE STATE ACCORDINGLY
+      let newBooks = state.author.books.concat(action.payload);
+
+      let newObj = {
+        ...state.author,
+        books: newBooks
+      };
+
+      return {
+        ...state,
+        author: newObj
+      };
 
     default:
       return state;

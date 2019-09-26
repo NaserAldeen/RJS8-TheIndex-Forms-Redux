@@ -5,7 +5,7 @@ import BookTable from "./BookTable";
 import Loading from "./Loading";
 
 import { connect } from "react-redux";
-
+import AddBookModal from "./AddBookModal";
 import * as actionCreators from "./store/actions/index";
 
 class AuthorDetail extends Component {
@@ -30,6 +30,7 @@ class AuthorDetail extends Component {
             />
           </div>
           <BookTable books={author.books} />
+          <AddBookModal author={author} />
         </div>
       );
     }
